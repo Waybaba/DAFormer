@@ -32,9 +32,9 @@ ln -s $UDATADIR/Cityscapes ./data/cityscapes
 
 ```
 
-## Change worker num
+## Change Config
 
-现在
+在这个基础config里面设置：uda_gta_to_cityscapes_512x512.py
 
 # RUN
 

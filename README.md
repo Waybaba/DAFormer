@@ -5,13 +5,13 @@
 **[[CVPR22 Paper]](https://arxiv.org/pdf/2111.14887.pdf)**
 **[[Extension Paper]](https://arxiv.org/pdf/2304.13615.pdf)**
 
-:bell: We are happy to announce that DAFormer was accepted at **CVPR22**. :bell:
+🔔 We are happy to announce that DAFormer was accepted at **CVPR22**. 🔔
 
-:bell: We are happy to announce that our follow-up work [HRDA](https://github.com/lhoyer/HRDA) on high-resolution UDA was accepted at **ECCV22**. :bell:
+🔔 We are happy to announce that our follow-up work [HRDA](https://github.com/lhoyer/HRDA) on high-resolution UDA was accepted at **ECCV22**. 🔔
 
-:bell: We are happy to announce that our follow-up work [MIC](https://github.com/lhoyer/MIC) on context-enhanced UDA was accepted at **CVPR23**. :bell:
+🔔 We are happy to announce that our follow-up work [MIC](https://github.com/lhoyer/MIC) on context-enhanced UDA was accepted at **CVPR23**. 🔔
 
-:bell: We further extend DAFormer to domain generalization and clear-to-adverse-weather UDA in the **[[Extension Paper]](https://arxiv.org/pdf/2304.13615.pdf)**. :bell:
+🔔 We further extend DAFormer to domain generalization and clear-to-adverse-weather UDA in the **[[Extension Paper]](https://arxiv.org/pdf/2304.13615.pdf)**. 🔔
 
 ## Overview
 
@@ -80,16 +80,16 @@ This includes synthetic-to-real adaptation on GTA→Cityscapes and
 Synthia→Cityscapes as well as clear-to-adverse-weather adaptation on
 Cityscapes→ACDC and Cityscapes→DarkZurich.
 
-|                     | GTA→CS(val)    | Synthia→CS(val)    | CS→ACDC(test)   | CS→DarkZurich(test)   |
-|---------------------|----------------|--------------------|-----------------|-----------------------|
-| ADVENT [1]          | 45.5           | 41.2               | 32.7            | 29.7                  |
-| BDL [2]             | 48.5           | --                 | 37.7            | 30.8                  |
-| FDA [3]             | 50.5           | --                 | 45.7            | --                    |
-| DACS [4]            | 52.1           | 48.3               | --              | --                    |
-| ProDA [5]           | 57.5           | 55.5               | --              | --                    |
-| MGCDA [6]           | --             | --                 | 48.7            | 42.5                  |
-| DANNet [7]          | --             | --                 | 50.0            | 45.2                  |
-| **DAFormer (Ours)** | **68.3**       | **60.9**           | **55.4***       | **53.8***             |
+|                           | GTA→CS(val)   | Synthia→CS(val) | CS→ACDC(test)  | CS→DarkZurich(test) |
+| ------------------------- | -------------- | ---------------- | --------------- | -------------------- |
+| ADVENT [1]                | 45.5           | 41.2             | 32.7            | 29.7                 |
+| BDL [2]                   | 48.5           | --               | 37.7            | 30.8                 |
+| FDA [3]                   | 50.5           | --               | 45.7            | --                   |
+| DACS [4]                  | 52.1           | 48.3             | --              | --                   |
+| ProDA [5]                 | 57.5           | 55.5             | --              | --                   |
+| MGCDA [6]                 | --             | --               | 48.7            | 42.5                 |
+| DANNet [7]                | --             | --               | 50.0            | 45.2                 |
+| **DAFormer (Ours)** | **68.3** | **60.9**   | **55.4*** | **53.8***      |
 
 &ast; New results of our [extension paper](https://arxiv.org/pdf/2304.13615.pdf)
 
@@ -107,14 +107,14 @@ References:
 
 DAFormer significantly outperforms previous works on domain generalization from GTA to real street scenes.
 
-| DG Method       | Cityscapes     | BDD100K        | Mapillary        | Avg.           |
-|-----------------|----------------|----------------|------------------|----------------|
-| IBN-Net [1,5]   | 37.37          | 34.21          | 36.81            | 36.13          |
-| DRPC [2]        | 42.53          | 38.72          | 38.05            | 39.77          |
-| ISW [3,5]       | 37.20          | 33.36          | 35.57            | 35.38          |
-| SAN-SAW [4]     | 45.33          | 41.18          | 40.77            | 42.43          |
-| SHADE [5]       | 46.66          | 43.66          | 45.50            | 45.27          |
-| DAFormer (Ours) | 52.65&ast;     | 47.89&ast;     | 54.66&ast;       | 51.73&ast;     |
+| DG Method       | Cityscapes | BDD100K    | Mapillary  | Avg.       |
+| --------------- | ---------- | ---------- | ---------- | ---------- |
+| IBN-Net [1,5]   | 37.37      | 34.21      | 36.81      | 36.13      |
+| DRPC [2]        | 42.53      | 38.72      | 38.05      | 39.77      |
+| ISW [3,5]       | 37.20      | 33.36      | 35.57      | 35.38      |
+| SAN-SAW [4]     | 45.33      | 41.18      | 40.77      | 42.43      |
+| SHADE [5]       | 46.66      | 43.66      | 45.50      | 45.27      |
+| DAFormer (Ours) | 52.65&ast; | 47.89&ast; | 54.66&ast; | 51.73&ast; |
 
 &ast; New results of our [extension paper](https://arxiv.org/pdf/2304.13615.pdf)
 
@@ -361,7 +361,7 @@ authors for making the source code publically available.
 
 ## License
 
-This project is released under the [Apache License 2.0](LICENSE), while some 
-specific features in this repository are with other licenses. Please refer to 
-[LICENSES.md](LICENSES.md) for the careful check, if you are using our code for 
+This project is released under the [Apache License 2.0](LICENSE), while some
+specific features in this repository are with other licenses. Please refer to
+[LICENSES.md](LICENSES.md) for the careful check, if you are using our code for
 commercial matters.
