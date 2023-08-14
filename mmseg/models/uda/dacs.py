@@ -236,6 +236,9 @@ class DACS(UDADecorator):
         src_feat = clean_losses.pop('features')
         clean_loss, clean_log_vars = self._parse_losses(clean_losses)
         log_vars.update(clean_log_vars)
+        TURN_ON_SOURCE_TRAIN = False
+        if TURN_ON_SOURCE_TRAIN:
+            clean_loss *= 0.0
         clean_loss.backward(retain_graph=self.enable_fdist)
         if self.print_grad_magnitude:
             params = self.get_model().backbone.parameters()
@@ -249,6 +252,8 @@ class DACS(UDADecorator):
         if self.enable_fdist:
             feat_loss, feat_log = self.calc_feat_dist(img, gt_semantic_seg,
                                                       src_feat)
+            if TURN_ON_SOURCE_TRAIN:
+                feat_loss *= 0.0
             feat_loss.backward()
             log_vars.update(add_prefix(feat_log, 'src'))
             if self.print_grad_magnitude:
@@ -299,8 +304,14 @@ class DACS(UDADecorator):
             _, pseudo_weight[i] = strong_transform(
                 strong_parameters,
                 target=torch.stack((gt_pixel_weight[i], pseudo_weight[i])))
-        mixed_img = torch.cat(mixed_img)
-        mixed_lbl = torch.cat(mixed_lbl)
+        
+        if TURN_ON_SOURCE_TRAIN:
+            mixed_img = torch.cat(mixed_img)
+            mixed_lbl = torch.cat(mixed_lbl)
+        else:
+            mixed_img = target_img
+            mixed_lbl = torch.stack([pseudo_label])
+            pseudo_weight = None
 
         # Train on mixed images
         mix_losses = self.get_model().forward_train(
@@ -352,8 +363,9 @@ class DACS(UDADecorator):
                 #            cmap="cityscapes")
                 subplotimg(
                     axs[1][3], mixed_lbl[j], 'Seg Targ', cmap='cityscapes')
-                subplotimg(
-                    axs[0][3], pseudo_weight[j], 'Pseudo W.', vmin=0, vmax=1)
+                if pseudo_weight is not None:
+                    subplotimg(
+                        axs[0][3], pseudo_weight[j], 'Pseudo W.', vmin=0, vmax=1)
                 if self.debug_fdist_mask is not None:
                     subplotimg(
                         axs[0][4],

@@ -16,6 +16,14 @@ ENV FIFTYONE_DATASET_ZOO_DIR=${UDATADIR}/fiftyone \
     FIFTYONE_MODEL_ZOO_DIR=${UDATADIR}/fiftyone/__models__ \
     FIFTYONE_DATABASE_DIR=${UDATADIR}/fiftyone/database/mongo
 
+# in China
+RUN curl --noproxy "*" -s --connect-timeout 5 www.google.com > /dev/null; \
+    if [ $? -ne 0 ]; then \
+        echo "In China"; \
+        sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list; \
+        sed -i 's/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list; \
+        echo "[global]\nindex-url = https://pypi.tuna.tsinghua.edu.cn/simple/\ntrusted-host = https://pypi.tuna.tsinghua.edu.cn" > /etc/pip.conf; \
+    fi
 
 # apt
 RUN apt-get update && apt-get install -y \
